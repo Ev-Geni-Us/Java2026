@@ -1,0 +1,43 @@
+```
+# Dependencies
+target/
+.m2/
+.gradle/
+
+# Compiled files
+*.class
+*.jar
+*.war
+*.ear
+*.so
+*.dll
+*.dylib
+
+# IDE
+.idea/
+.vscode/
+*.iml
+*.ipr
+*.iws
+
+# Logs
+*.log
+
+# Environment
+.env
+.env.local
+*.env.*
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Build tools
+.mypy_cache/
+.pytest_cache/
+coverage/
+htmlcov/
+```node_modules/
+.next/
+dist/
+build/

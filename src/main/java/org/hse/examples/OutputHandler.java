@@ -9,7 +9,6 @@ public class OutputHandler {
 
             // отсутствие = ошибка
             printError("Сотрудник не найден");
-            return;
         }
         else {
             System.out.println(employee.name() + " Уровень доступа: " + employee.accessLevel());

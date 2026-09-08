@@ -10,7 +10,6 @@ import java.util.Optional;
 class EmployeeRepoTest {
 
     private EmployeeRepo repo;
-    private Employee testEmployee;
 
     @BeforeEach
     void setUp() {

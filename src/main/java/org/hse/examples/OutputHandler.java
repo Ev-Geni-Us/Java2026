@@ -8,7 +8,8 @@ public class OutputHandler {
         if (employee == null) {
 
             // отсутствие = ошибка
-            System.out.println("Сотрудник не найден");
+            printError("Сотрудник не найден");
+            return;
         }
         else {
             System.out.println(employee.name() + " Уровень доступа: " + employee.accessLevel());
@@ -28,5 +29,9 @@ public class OutputHandler {
                 System.out.println("Доступ аннулирован");
             }
         }
+    }
+    //для тестов
+    public void printError(String message) {
+        System.err.println(message);
     }
 }

@@ -34,5 +34,18 @@ public class EmployeeRepo {
         //.orElse(null);
     }
 
+    //Добавление нового сотрудника для теста
+    public boolean addEmployee(Employee employee) {
+        // Проверка на null
+        if (employee == null) {
+            return false;
+        }
 
+        if (findEmployeeById(employee.id()).isPresent()) {
+            return false;
+        }
+
+        employees.add(employee);
+        return true;
+    }
 }

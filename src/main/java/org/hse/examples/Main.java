@@ -1,33 +1,26 @@
 package org.hse.examples;
 
-//Усынин Е.В. задание 3                                                                                                         //Created By EvGeniUs
+//Усынин Е.В. задание 5                                                                                                         //Created By EvGeniUs
 //Имитация электронного пропуска по ID
 
 public class Main {
 
-    //Конструкторы добавил что бы сделать тест с Mock
-    private EmployeeRepo repo;
-    private InputHandler input;
-    private OutputHandler output;
+    private final AppContext context;
 
-    public  Main() {
-        this.repo = new EmployeeRepo();
-        this.input = new InputHandler();
-        this.output = new OutputHandler();
+    public  Main(AppContext context) {
+        this.context = context;
     }
 
-    public Main(EmployeeRepo repo, InputHandler input, OutputHandler output) {
-        this.repo = repo;
-        this.input = input;
-        this.output = output;
+    public Main() {
+        this(new AppContext());
     }
 
     public void run() {
-        input.readInputId().ifPresentOrElse(
+        context.input().readInputId().ifPresentOrElse(
                 id -> {
-                    repo.findEmployeeById(id).ifPresentOrElse(
-                            output::printAnswer,
-                            () -> output.printError("Сотрудник не найден")
+                    context.repo().findEmployeeById(id).ifPresentOrElse(
+                            context.output()::printAnswer,
+                            () -> context.output().printError("Сотрудник не найден")
                     );
                 },
                 () -> System.out.println("Выход из программы")
@@ -35,7 +28,6 @@ public class Main {
     }
 
     public static void main(String[] args) {
-        Main main = new Main();
-        main.run();
+        new Main().run();
     }
 }

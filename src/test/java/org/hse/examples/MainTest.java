@@ -24,23 +24,20 @@ import static org.mockito.Mockito.when;
 class MainTest {
 
     private EmployeeRepo mockRepo;
-
     private InputHandler mockInput;
-
     private OutputHandler mockOutput;
-
     private Main main;
     private Employee testEmployee;
 
     @BeforeEach
     void setUp() {
 
-        this.mockRepo = Mockito.mock(EmployeeRepo.class);
-        this.mockInput = Mockito.mock(InputHandler.class);
-        this.mockOutput = Mockito.mock(OutputHandler.class);
+        mockRepo = Mockito.mock(EmployeeRepo.class);
+        mockInput = Mockito.mock(InputHandler.class);
+        mockOutput = Mockito.mock(OutputHandler.class);
 
         testEmployee = new Employee(1, "Иванов И.Г.", 3, true, 1);
-        main = new Main(mockRepo, mockInput, mockOutput);
+        main = new Main(new AppContext(mockRepo, mockInput, mockOutput));
     }
 
     @Test

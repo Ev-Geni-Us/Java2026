@@ -11,7 +11,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
-import org.mockito.Mock;
+import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.util.Optional;
@@ -22,20 +22,22 @@ import static org.mockito.Mockito.when;
 @ExtendWith(MockitoExtension.class)
 
 class MainTest {
-    @Mock
-    private EmployeeRepo mockRepo;
-    @Mock
-    private InputHandler mockInput;
-    @Mock
-    private OutputHandler mockOutput;
 
+    private EmployeeRepo mockRepo;
+    private InputHandler mockInput;
+    private OutputHandler mockOutput;
     private Main main;
     private Employee testEmployee;
 
     @BeforeEach
     void setUp() {
+
+        mockRepo = Mockito.mock(EmployeeRepo.class);
+        mockInput = Mockito.mock(InputHandler.class);
+        mockOutput = Mockito.mock(OutputHandler.class);
+
         testEmployee = new Employee(1, "Иванов И.Г.", 3, true, 1);
-        main = new Main(mockRepo, mockInput, mockOutput);
+        main = new Main(new AppContext(mockRepo, mockInput, mockOutput));
     }
 
     @Test

@@ -21,7 +21,7 @@ record Employee(
         if (name == null || name.trim().isEmpty()) {
             throw new IllegalArgumentException("Пустое поле имени");
         }
-        if (accessLevel < 0 || accessLevel > 5) {
+        if (accessLevel < 1 || accessLevel > 5) {
             throw new IllegalArgumentException("Не допустимый уровень доступа");
         }
     }

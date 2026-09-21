@@ -39,15 +39,3 @@ public class Main {
         main.run();
     }
 }
-
-/*
-        int intId = inputHandler.readInputId();
-        inputHandler.scannerClose();
-
-        // поиск сотрудника
-        Employee employee = employeeRepo.findEmployeeById(intId);
-
-        //вывод
-        outputHandler.printAnswer(employee);
-
- */

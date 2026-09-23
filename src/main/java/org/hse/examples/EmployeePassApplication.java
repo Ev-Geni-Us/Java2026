@@ -1,3 +1,7 @@
+
+// Усынин Е. В. дз-6
+// Приложение имитирует систему электронного пропуска                                                                   Created by EvGeniUs
+
 package org.hse.examples;
 
 import org.hse.examples.application.EmployeeService;
